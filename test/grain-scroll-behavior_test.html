@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+	<title>grain-scroll-behavior test</title>
+
+	<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+	<script src="../../web-component-tester/browser.js"></script>
+
+	<link rel="import" href="../grain-scroll-behavior-example.html">
+</head>
+<body>
+
+<test-fixture id="BasicTestFixture">
+	<template>
+		<grain-scroll-behavior-example></grain-scroll-behavior-example>
+	</template>
+</test-fixture>
+
+<script>
+	suite('grain-scroll-behavior', function() {
+
+		test('instantiating the element with default properties works', function() {
+			let element = fixture('BasicTestFixture');
+			assert.equal(element.shown, 'false');
+		});
+
+	});
+</script>
+
+</body>
+</html>

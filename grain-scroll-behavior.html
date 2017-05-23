@@ -1,0 +1,27 @@
+<script>
+
+	const GrainScrollBehavior = subclass => class extends subclass {
+
+		vhToPx(vh) {
+			if (vh.indexOf('vh') > 0) {
+				return document.documentElement.clientHeight * (parseInt(vh)/100) + '';
+			}
+			return vh;
+		}
+
+		onScroll(scrollTop) {
+			console.log('Default onScroll Function => provide your own! Current scrollTop', scrollTop);
+		}
+
+		scrollLoop() {
+			let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+			if (this.lastScrollTop !== scrollTop) {
+				this.lastScrollTop = scrollTop;
+				this.onScroll(scrollTop);
+			}
+			requestAnimationFrame(this.scrollLoop.bind(this));
+		}
+
+	};
+
+</script>
